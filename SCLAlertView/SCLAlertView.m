@@ -136,7 +136,9 @@ SCLTimerDisplay *buttonTimer;
 {
     if(_canAddObservers)
     {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardDidShowNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
         _canAddObservers = NO;
     }
@@ -277,6 +279,8 @@ SCLTimerDisplay *buttonTimer;
 {
     [super viewWillLayoutSubviews];
     
+    NSLog(@"LAYOUT SUBVIEWS");
+    
     CGSize sz = [self mainScreenFrame].size;
     
     // Check for larger top circle icon flag
@@ -313,6 +317,12 @@ SCLTimerDisplay *buttonTimer;
         // View is not visible, position outside screen bounds
         r = CGRectMake((sz.width-_windowWidth)/2, -_windowHeight, _windowWidth, _windowHeight);
     }
+    
+    // Fix for iPhone x and above
+    if (_keyboardIsVisible) {
+           r.origin.y -= KEYBOARD_HEIGHT + PREDICTION_BAR_HEIGHT;
+    }
+    
     self.view.frame = r;
     
     // Set new background frame
@@ -368,6 +378,8 @@ SCLTimerDisplay *buttonTimer;
     
     // Adjust corner radius, if a value has been passed
     _contentView.layer.cornerRadius = self.cornerRadius ? self.cornerRadius : 5.0f;
+    
+   
 }
 
 #pragma mark - UIViewController
@@ -629,9 +641,13 @@ SCLTimerDisplay *buttonTimer;
     return NO;
 }
 
+
+
 - (void)keyboardWillShow:(NSNotification *)notification
 {
     if(_keyboardIsVisible) return;
+    
+    NSLog(@"keyboardWillShow");
     
     [UIView animateWithDuration:0.2f animations:^{
         CGRect f = self.view.frame;
@@ -644,6 +660,8 @@ SCLTimerDisplay *buttonTimer;
 - (void)keyboardWillHide:(NSNotification *)notification
 {
     if(!_keyboardIsVisible) return;
+    
+    NSLog(@"keyboardWillHide");
     
     [UIView animateWithDuration:0.2f animations:^{
         CGRect f = self.view.frame;

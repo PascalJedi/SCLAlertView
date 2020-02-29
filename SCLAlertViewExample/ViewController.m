@@ -119,6 +119,9 @@ NSString *kAttributeTitle = @"Attributed string operation successfully completed
     SCLAlertView *alert = [[SCLAlertView alloc] init];
     
     SCLTextView *textField = [alert addTextField:@"Enter your name"];
+    SCLTextView *textField2 = [alert addTextField:@"Enter your name"];
+    SCLTextView *textField3 = [alert addTextField:@"Enter your name"];
+    
     [alert addButton:@"Show Name" actionBlock:^(void) {
         NSLog(@"Text value: %@", textField.text);
     }];
@@ -132,6 +135,9 @@ NSString *kAttributeTitle = @"Attributed string operation successfully completed
     [alert setHorizontalButtons:YES];
     
     SCLTextView *textField = [alert addTextField:@"Enter your name"];
+    SCLTextView *textField2 = [alert addTextField:@"Enter your name"];
+    SCLTextView *textField3 = [alert addTextField:@"Enter your name"];
+    
     alert.hideAnimationType = SCLAlertViewHideAnimationSimplyDisappear;
     [alert addButton:@"Show Name" actionBlock:^(void) {
         NSLog(@"Text value: %@", textField.text);

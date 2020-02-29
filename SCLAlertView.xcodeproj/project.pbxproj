@@ -337,6 +337,7 @@
 				TargetAttributes = {
 					DDB15F9C19D5B7C600173158 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = RGG6A575RP;
 					};
 					DDB15FB519D5B7C600173158 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -352,6 +353,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -565,6 +567,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = RGG6A575RP;
 				INFOPLIST_FILE = "$(SRCROOT)/SCLAlertViewExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -578,6 +581,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = RGG6A575RP;
 				INFOPLIST_FILE = "$(SRCROOT)/SCLAlertViewExample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
